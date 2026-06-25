@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FragStack Research Panel</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="hud-container">
+    <!-- Header -->
+    <header class="hud-header">
+      <div class="header-logo">
+        FRAGSTACK
+      </div>
+      <div class="header-status">
+        <span id="frag-count">0</span> fragments
+      </div>
+    </header>
+
+    <!-- Toolbar Actions -->
+    <div class="toolbar">
+      <button id="clear-all-btn" class="hud-btn btn-danger" title="Clear all temporary fragments">
+        Clear Active
+      </button>
+      <div class="export-group">
+        <select id="export-format-select" class="hud-select" title="Choose export format">
+          <option value="md">Markdown (.md)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="html">Web Page (.html)</option>
+        </select>
+        <button id="export-btn" class="hud-btn btn-primary" title="Export active fragments">
+          Export
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Snippet Board -->
+    <main class="snippet-board-container">
+      <div id="empty-state" class="empty-state">
+        <div class="empty-art">Empty Stack</div>
+        <p>No text fragments captured yet.</p>
+        <p class="empty-tip">Select text on any page and press <span class="key-combo">Alt+Shift+S</span> or right-click to send here.</p>
+      </div>
+      <div id="snippet-list" class="snippet-list">
+        <!-- Injected snippet cards go here -->
+      </div>
+    </main>
+
+    <!-- Session Management Drawer -->
+    <section class="session-manager">
+      <h2 class="section-title">Session Archives</h2>
+      
+      <!-- Save current session -->
+      <div class="save-session-box">
+        <input type="text" id="session-name-input" class="hud-input" placeholder="New session name..." autocomplete="off">
+        <button id="save-session-btn" class="hud-btn btn-accent">Save</button>
+      </div>
+
+      <!-- Saved session list -->
+      <div id="saved-sessions-list" class="saved-sessions-list">
+        <!-- Saved session archives go here -->
+      </div>
+    </section>
+
+    <!-- System Status Bar -->
+    <footer class="hud-footer">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span> Active
+      </div>
+      <div class="shortcut-tip">
+        Alt+Shift+P to Toggle Panel
+      </div>
+    </footer>
+  </div>
+
+  <!-- Load dependencies & scripts -->
+  <script src="lib/sortable.min.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
